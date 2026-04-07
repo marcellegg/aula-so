@@ -234,6 +234,7 @@ Etapas:
 
 # 📌 Conclusão
 
-A aula apresentou os **principais tipos de sistemas operacionais e suas aplicações**, mostrando como diferentes sistemas são desenvolvidos para atender necessidades específicas, como servidores, dispositivos móveis e sistemas embarcados.
+A aula apresentou os principais tipos de sistemas operacionais e suas aplicações, mostrando como diferentes sistemas são desenvolvidos para atender necessidades específicas, como servidores, dispositivos móveis e sistemas embarcados.
 
-Além disso, foi introduzido o **Git**, uma ferramenta essencial para **co
+Além disso, foi introduzido o Git, uma ferramenta essencial para controle de versão, colaboração e gerenciamento de projetos de software.
+
