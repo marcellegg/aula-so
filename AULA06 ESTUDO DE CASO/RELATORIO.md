@@ -24,8 +24,76 @@ Atualmente, utiliza servidores locais sem padronização, o que dificulta a manu
 ## 🧩 Diagrama da Arquitetura
 
 <p align="center">
-  <img src="diagrama.png/diagrama.png" alt="Diagrama da Arquitetura DevStore" width="800"/>
+  <img src="diagrama.png" width="800"/>
+  <br>
+  <em>Figura 1 – Arquitetura proposta da DevStore</em>
 </p>
+
+---
+
+## 📝 Explicação do Diagrama
+
+O diagrama representa a organização da infraestrutura da DevStore dividida em **quatro partes principais**, mostrando como o sistema evolui desde o desenvolvimento até a produção.
+
+### 👨‍💻 1. Desenvolvimento
+
+Nesta etapa, os desenvolvedores trabalham em suas máquinas locais (**Dev Local**) utilizando **containers Docker**.
+Isso garante que todos utilizem o mesmo ambiente, evitando problemas de compatibilidade.
+
+➡️ O resultado dessa fase segue para testes.
+
+---
+
+### 🧪 2. Testes
+
+Aqui ocorre a validação das aplicações antes de irem para produção.
+
+* **Containers:** usados para testes rápidos
+* **Máquinas Virtuais:** usadas para testes mais completos e isolados
+
+💡 Essa combinação garante mais segurança e qualidade.
+
+➡️ Após os testes, o sistema é enviado para produção.
+
+---
+
+### ☁️ 3. Produção (Nuvem)
+
+Essa é a etapa onde o sistema fica disponível para uso real.
+
+* **Servidores Cloud:** hospedam a aplicação
+* **Aplicações:** executam os serviços
+* **Banco de Dados:** armazena as informações
+
+💡 A nuvem permite:
+
+* Escalabilidade
+* Alta disponibilidade
+* Melhor desempenho
+
+---
+
+### ⚙️ 4. Gestão e Segurança
+
+Essa camada atua em **todas as outras**, garantindo controle e estabilidade do sistema.
+
+Inclui:
+
+* 📊 Monitoramento (desempenho e falhas)
+* 🔐 Controle de acesso (usuários e permissões)
+* 🧱 Firewall (proteção contra ataques)
+
+💡 Ela é conectada a todas as partes do sistema, garantindo funcionamento seguro.
+
+---
+
+### 🔄 Fluxo Geral
+
+O fluxo do sistema segue esta ordem:
+
+**Desenvolvimento → Testes → Produção**
+
+Enquanto isso, a camada de **Gestão e Segurança acompanha todas as etapas**.
 
 ---
 
@@ -54,35 +122,10 @@ Atualmente, utiliza servidores locais sem padronização, o que dificulta a manu
 
 A solução integra quatro pilares principais:
 
-### 🔹 Virtualização
-
-* Uso em ambientes de teste
-* Maior isolamento entre sistemas
-
-### 🔹 Containerização (Docker)
-
-* Ambientes leves e padronizados
-* Execução consistente em qualquer máquina
-
-### 🔹 Computação em Nuvem
-
-* Hospedagem em produção
-* Alta disponibilidade e escalabilidade
-
-### 🔹 Segurança
-
-* Controle de acesso
-* Firewall
-* Monitoramento contínuo
-
----
-
-## 📍 Estrutura da Arquitetura
-
-* 👨‍💻 **Desenvolvimento:** containers locais padronizados
-* 🧪 **Testes:** containers + máquinas virtuais
-* ☁️ **Produção:** nuvem com alta disponibilidade
-* ⚙️ **Gestão:** segurança, controle e monitoramento
+* Virtualização
+* Containerização (Docker)
+* Computação em Nuvem
+* Segurança da Informação
 
 ---
 
@@ -116,8 +159,6 @@ Permite acompanhar:
 * Memória
 * Armazenamento
 * Desempenho geral
-
-🔍 Ajuda a prevenir falhas e melhorar a performance
 
 ---
 
@@ -178,4 +219,4 @@ A adoção de uma infraestrutura baseada em **containers + nuvem** permite que a
 
 ---
 
-✨ *Projeto acadêmico desenvolvido para estudo de infraestrutura em Sistemas Operacionais.*
+
