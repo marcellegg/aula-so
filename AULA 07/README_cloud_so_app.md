@@ -1,32 +1,34 @@
-# Manual da Atividade — Cloud SO App
+# Cloud SO App
 
 ## Links do Projeto
 
-**Repositório no GitHub:**  
-https://github.com/marcellegg/cloud-so-app
+- **Repositório no GitHub:**  
+  https://github.com/marcellegg/cloud-so-app
 
-**Aplicação publicada no Render:**  
+- **Aplicação publicada no Render:**  
+  https://cloud-so-app-1.onrender.com
+
+---
+
+# Teste Online no Render
+
+A aplicação está disponível online no seguinte endereço:
+
 https://cloud-so-app-1.onrender.com
 
 ---
 
-## Teste Online no Render
+# Imagem do Teste Localhost
 
-A aplicação está disponível online no seguinte endereço: https://cloud-so-app-1.onrender.com
-
----
-
-## Imagem do Teste Localhost
-
-> <p align="center">
+<p align="center">
   <img src="testelocal.png" width="800"/>
   <br>
+  <em>Legenda: Captura de tela do Dashboard em ambiente local (Porta 3001).</em>
 </p>
-
 
 ---
 
-## 1. Introdução
+# 1. Introdução
 
 Este manual documenta o desenvolvimento da atividade prática da disciplina de **Nuvem e Sistemas Operacionais**.
 
@@ -38,7 +40,7 @@ O objetivo principal foi comparar a execução local com a execução em nuvem, 
 
 ---
 
-## 2. Objetivo da Atividade
+# 2. Objetivo da Atividade
 
 O objetivo da atividade foi desenvolver uma aplicação chamada `cloud-so-app`, que exibe informações do sistema operacional, como:
 
@@ -55,137 +57,74 @@ Além disso, a atividade também teve como objetivo publicar a aplicação em am
 
 ---
 
-## 3. Tecnologias Utilizadas
+# 3. Tecnologias Utilizadas
 
 As tecnologias utilizadas no projeto foram:
 
-- **Node.js**: ambiente de execução JavaScript no backend;
-- **Express.js**: framework utilizado para criação do servidor web;
-- **CORS**: mecanismo de segurança que controla acesso entre domínios diferentes no navegador;
-- **HTML**: estrutura da página exibida ao usuário;
-- **CSS/JavaScript**: estilização visual e lógica do frontend;
-- **Git**: ferramenta de controle de versão;
-- **GitHub**: plataforma utilizada para hospedar o código-fonte;
-- **Render**: plataforma utilizada para publicar a aplicação em nuvem;
-- **PowerShell / CMD**: terminal utilizado para execução dos comandos no Windows.
+- **Node.js** — ambiente de execução JavaScript no backend;
+- **Express.js** — framework utilizado para criação do servidor web;
+- **CORS** — mecanismo de segurança que controla acesso entre domínios diferentes no navegador;
+- **HTML** — estrutura da página exibida ao usuário;
+- **CSS / JavaScript** — estilização visual e lógica do frontend;
+- **Git** — ferramenta de controle de versão;
+- **GitHub** — plataforma utilizada para hospedar o código-fonte;
+- **Render** — plataforma utilizada para publicar a aplicação em nuvem;
+- **PowerShell / CMD** — terminal utilizado para execução dos comandos no Windows.
 
 ---
 
-## 4. Instalação das Ferramentas
+# 4. Instalação das Ferramentas
 
-Para desenvolver e executar o projeto, foram necessárias as seguintes ferramentas:
+## 4.1 Node.js
 
-### 4.1 Node.js
+Verificação da instalação:
 
-O Node.js foi utilizado para executar a aplicação backend em JavaScript.
-
-Para verificar se o Node.js estava instalado, foi utilizado o comando:
-
-```
+```bash
 node -v
-```
-
-Também foi verificada a instalação do npm:
-
-```
 npm -v
 ```
 
-O `npm` é o gerenciador de pacotes do Node.js, utilizado para instalar as dependências do projeto.
-
 ---
 
-### 4.2 Git
+## 4.2 Git
 
-O Git foi utilizado para versionar o projeto e enviar os arquivos para o GitHub.
+Verificação da instalação:
 
-Para verificar se o Git estava instalado, foi utilizado o comando:
-
-```
+```bash
 git --version
 ```
 
-Caso não esteja instalado, o download está disponível em **git-scm.com/downloads**.
-
 ---
 
-### 4.3 Configuração Inicial do Git
+## 4.3 Liberação de Scripts no Windows (PowerShell)
 
-Na primeira utilização, é necessário configurar nome e e-mail:
+Para permitir a execução do `npm` no PowerShell:
 
-```
-git config --global user.name "Seu Nome"
-git config --global user.email "seu@email.com"
-```
-
----
-
-### 4.4 Liberação de Scripts no Windows (PowerShell)
-
-No Windows, o PowerShell bloqueia a execução de scripts por padrão. Ao tentar executar `npm install`, pode aparecer o erro:
-
-```
-O arquivo npm.ps1 não pode ser carregado porque a execução de scripts
-foi desabilitada neste sistema.
-```
-
-**Solução:** abrir o PowerShell como Administrador e executar:
-
-```
+```powershell
 Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
 ```
 
-Digitar **S** para confirmar. Alternativamente, utilizar o **Prompt de Comando (cmd)** no lugar do PowerShell, onde esse erro não ocorre.
-
 ---
 
-### 4.5 Visual Studio Code
+# 5. Criação do Projeto
 
-O Visual Studio Code foi utilizado como editor de código para criar e editar os arquivos do projeto.
-
----
-
-### 4.6 Conta no GitHub
-
-Foi utilizada uma conta no GitHub para criar o repositório remoto do projeto e armazenar o código-fonte da aplicação.
-
----
-
-### 4.7 Conta no Render
-
-Foi utilizada uma conta na plataforma Render para publicar a aplicação em ambiente de nuvem.
-
----
-
-## 5. Criação do Projeto
-
-O projeto foi criado dentro de uma pasta com o nome `cloud-so-app`.
-
-Os comandos utilizados foram:
-
-```
+```bash
 mkdir cloud-so-app
 cd cloud-so-app
 npm init -y
 ```
 
-O comando `npm init -y` criou automaticamente o arquivo `package.json`, responsável por armazenar as informações do projeto, scripts e dependências.
-
 ---
 
-## 6. Instalação das Dependências
+# 6. Instalação das Dependências
 
-As dependências utilizadas foram o Express.js e o CORS.
+Instalação do Express.js e do CORS:
 
-A instalação foi feita com o comando:
-
-```
+```bash
 npm install express cors
 ```
 
-Após a instalação, o arquivo `package.json` passou a registrar as dependências do projeto.
-
-Também foi configurado o script de inicialização:
+Configuração do script no `package.json`:
 
 ```json
 "scripts": {
@@ -193,19 +132,11 @@ Também foi configurado o script de inicialização:
 }
 ```
 
-Esse script permite iniciar a aplicação com o comando:
-
-```
-node index.js
-```
-
 ---
 
-## 7. Estrutura do Projeto
+# 7. Estrutura do Projeto
 
-A estrutura final do projeto ficou organizada da seguinte forma:
-
-```
+```plaintext
 cloud-so-app/
 ├── index.js
 ├── package.json
@@ -215,490 +146,214 @@ cloud-so-app/
     └── index.html
 ```
 
-### Descrição dos arquivos
+---
 
-| Arquivo/Pasta | Descrição |
-| --- | --- |
-| `index.js` | Arquivo principal — servidor Express e endpoint da API |
-| `package.json` | Arquivo de configuração do projeto e dependências |
-| `package-lock.json` | Arquivo gerado automaticamente pelo npm |
-| `.gitignore` | Lista de arquivos ignorados pelo Git |
-| `public/index.html` | Página web do dashboard de informações do SO |
+# 8. Desenvolvimento da Aplicação
+
+A aplicação utiliza o módulo nativo `os` para acessar dados do sistema:
+
+- `os.hostname()` → Nome da máquina;
+- `os.platform()` → Plataforma (`win32`, `linux`);
+- `os.arch()` → Arquitetura (`x64`);
+- `os.cpus()` → Dados dos processadores;
+- `os.totalmem()` e `os.freemem()` → Gerenciamento de memória;
+- `os.uptime()` → Tempo de atividade.
 
 ---
 
-## 8. Desenvolvimento da Aplicação
+# 9. Criação do Arquivo `.gitignore`
 
-A aplicação foi desenvolvida utilizando Node.js, Express.js e o módulo nativo `os`.
-
-O módulo `os` permite acessar informações do sistema operacional onde a aplicação está sendo executada.
-
-No projeto, foram utilizadas funções como:
-
-```js
-os.hostname()    // Nome da máquina na rede
-os.platform()    // Plataforma (linux, win32, darwin)
-os.arch()        // Arquitetura (x64, arm64)
-os.cpus()        // Array com informações de cada CPU
-os.totalmem()    // Memória total em bytes
-os.freemem()     // Memória livre em bytes
-os.uptime()      // Tempo de atividade em segundos
-process.version  // Versão do Node.js
-```
-
-Essas funções permitem obter informações como nome do host, plataforma, arquitetura, processador, memória e tempo de atividade do sistema.
-
----
-
-## 9. Criação do Arquivo .gitignore
-
-O arquivo `.gitignore` evita que a pasta `node_modules` (pesada e desnecessária no repositório) seja enviada ao GitHub.
-
-No Windows, a forma mais simples de criar esse arquivo é pelo terminal:
-
-```
+```bash
 echo node_modules/ > .gitignore
 ```
 
-Outra opção é pelo **VS Code**: criar novo arquivo, nomear como `.gitignore` e salvar com o conteúdo `node_modules/`.
+---
 
-Pelo **Bloco de Notas**: salvar em *Todos os arquivos (*.*)* para evitar que o arquivo seja salvo como `.gitignore.txt`.
+# 10. Funcionamento da Aplicação
+
+O servidor serve a página HTML em `/`.
+
+O JavaScript da página faz um `fetch` para o endpoint `/api/sysinfo`, que retorna o JSON com os dados do sistema operacional.
+
+## Configuração de Porta Resiliente
+
+```javascript
+const PORT = process.env.PORT || 3001;
+```
+
+Localmente utiliza a porta `3001` e no Render utiliza automaticamente a variável `PORT`.
 
 ---
 
-## 10. Funcionamento da Aplicação
+# 11. Execução Local
 
-A aplicação cria um servidor web utilizando o Express.js.
-
-Quando o usuário acessa a rota principal `/`, o servidor serve a página HTML do dashboard. O JavaScript da página faz uma requisição ao endpoint `/api/sysinfo`, que coleta as informações do sistema operacional e retorna em formato JSON.
-
-A aplicação utiliza a seguinte configuração de porta:
-
-```js
-const PORT = process.env.PORT || 3000;
-```
-
-Essa configuração é importante porque:
-
-- Em ambiente local, a aplicação roda na porta `3000`;
-- No Render, a porta é definida automaticamente pela variável de ambiente `PORT`.
-
----
-
-## 11. Execução Local
-
-Para executar a aplicação localmente, foi utilizado o terminal dentro da pasta do projeto.
-
-Em seguida, as dependências foram instaladas:
-
-```
+```bash
 npm install
-```
-
-Depois, a aplicação foi iniciada:
-
-```
 node index.js
 ```
 
-O terminal exibiu a seguinte mensagem:
+Acesso:
 
-```
-Servidor rodando em http://localhost:3000
-```
-
-Com isso, a aplicação pôde ser acessada no navegador pelo endereço:
-
-```
-http://localhost:3000
+```plaintext
+http://localhost:3001
 ```
 
 ---
 
-## 12. Resultado do Teste Local
+# 12. Resultado do Teste Local
 
-Durante o teste local, a aplicação exibiu as informações do sistema operacional da máquina utilizada.
-
-Resultado observado no ambiente local:
-
-| Informação | Valor Local |
-| --- | --- |
-| Hostname | srv-d7tr3pf7f7vs73fdsh9g-hibernate-7b86b55b5b-nvxnm |
-| Platform | PREENCHER |
-| Architecture | PREENCHER |
-| Número de CPUs | PREENCHER |
-| Modelo da CPU | PREENCHER |
-| Memória Total | PREENCHER GB |
-| Memória Livre | PREENCHER GB |
-| Uptime do Sistema | PREENCHER |
-| Versão do Node.js | PREENCHER |
+| Informação | Valor Observado (Local) |
+|---|---|
+| Hostname | DESKTOP-RB6SL56 |
+| Platform | win32 |
+| Architecture | x64 |
+| Modelo da CPU | Intel(R) Core(TM) i3-10100F @ 3.60GHz |
+| Memória Total | 7.85 GB |
 
 ---
 
-## 12. Versionamento com Git
+# 13. Versionamento com Git
 
-Após a criação e teste da aplicação, o projeto foi versionado utilizando Git.
-
-Os comandos utilizados foram:
-
-```
+```bash
 git init
 git add .
 git commit -m "primeiro commit - cloud-so-app"
 git branch -M main
-```
-
-Depois, o repositório remoto foi configurado:
-
-```
 git remote add origin https://github.com/marcellegg/cloud-so-app.git
-```
-
-Em seguida, o projeto foi enviado para o GitHub:
-
-```
 git push -u origin main
 ```
 
-Durante o `git push`, o GitHub pode solicitar login. Caso peça **token** ao invés de senha, acessar:
+---
 
-> GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic) → Generate new token
+# 14. Publicação no Render
 
-Marcar a opção **repo** e usar o token gerado como senha.
+Etapas realizadas:
+
+1. Acesso ao dashboard do Render;
+2. Criação de um novo Web Service;
+3. Conexão com o repositório `marcellegg/cloud-so-app`;
+4. Definição do Build Command:
+
+```bash
+npm install
+```
+
+5. Definição do Start Command:
+
+```bash
+node index.js
+```
 
 ---
 
-## 13. Publicação no GitHub
-
-O projeto foi publicado no GitHub no seguinte repositório:
-
-https://github.com/marcellegg/cloud-so-app
-
-O GitHub foi utilizado para armazenar o código-fonte e permitir a integração com o Render.
-
----
-
-## 14. Publicação no Render
-
-Após o envio do projeto para o GitHub, a aplicação foi publicada na plataforma Render.
-
-O procedimento realizado foi:
-
-1. Acessar o painel do Render em **dashboard.render.com**;
-2. Clicar em **New**;
-3. Selecionar **Web Service**;
-4. Conectar a conta do GitHub;
-5. Escolher o repositório `cloud-so-app`;
-6. Configurar o serviço como aplicação Node.js;
-7. Definir os comandos de build e inicialização;
-8. Criar o serviço e aguardar o deploy.
-
----
-
-## 15. Configurações Utilizadas no Render
-
-As configurações utilizadas no Render foram:
-
-| Campo | Valor |
-| --- | --- |
-| Source Code | `marcellegg/cloud-so-app` |
-| Name | `cloud-so-app` |
-| Language | `Node` |
-| Branch | `main` |
-| Build Command | `npm install` |
-| Start Command | `node index.js` |
-| Instance Type | Free |
-
-A aplicação foi publicada online no endereço:
-
-https://cloud-so-app-iq0d.onrender.com/
-
----
-
-## 16. Resultado do Teste no Render
-
-Após o deploy, a aplicação foi acessada pelo navegador por meio do link público.
-
-No ambiente Render, a aplicação exibiu informações do servidor/container em nuvem, e não da máquina local.
-
-Resultado observado no Render:
+# 15. Resultado do Teste no Render
 
 | Informação | Valor no Render |
-| --- | --- |
-| Hostname | srv-d7tr3pf7f7vs73fdsh9g-hibernate-7b86b55b5b-nvxnm |
-| Platform | PREENCHER |
-| Architecture | PREENCHER |
-| Número de CPUs | PREENCHER |
-| Modelo da CPU | PREENCHER |
-| Memória Total | PREENCHER GB |
-| Memória Livre | PREENCHER GB |
-| Uptime do Sistema | PREENCHER |
-| Versão do Node.js | PREENCHER |
-
-> Preencha os campos acima com os valores exibidos na página online do Render.
+|---|---|
+| Hostname | [PREENCHER COM O DADO DO SITE] |
+| Platform | linux |
+| Architecture | x64 |
+| Modelo da CPU | [PREENCHER COM O DADO DO SITE] |
+| Memória Total | [PREENCHER COM O DADO DO SITE] |
 
 ---
 
-## 17. Comparação entre Ambiente Local e Ambiente em Nuvem
-
-A comparação entre os ambientes permite observar que o mesmo código apresenta informações diferentes dependendo do local onde está sendo executado.
+# 16. Comparação entre Ambiente Local e Nuvem
 
 | Informação | Ambiente Local | Ambiente Render | Observação |
-| --- | --- | --- | --- |
-| Hostname | DESKTOP-RB6SL56 | srv-d7tr3pf7f7vs73fdsh9g-hibernate-7b86b55b5b-nvxnm | Local: nome do computador pessoal. Render: identificador interno do container em nuvem. |
-| Platform | win32 | PREENCHER | Local: sistema do aluno (ex: win32). Render: normalmente Linux. |
-| Architecture | x64 | PREENCHER | A arquitetura pertence a hardwares/ambientes diferentes. |
-| Número de CPUs | 8 | PREENCHER | A quantidade de CPUs depende do ambiente de execução. |
-| Modelo da CPU | Intel(R) Core(TM) i3-10100F CPU @ 3.60GHz | PREENCHER | Local: processador físico. Render: processador da infraestrutura do provedor. |
-| Memória Total | 7.85 GB | PREENCHER | Local: RAM do computador. Render: memória disponível para o container cloud. |
-| Memória Livre | 1.51 GB | PREENCHER | Varia conforme o uso do sistema em cada ambiente. |
-| Uptime | 1h 13m 51s | PREENCHER | Local: tempo desde o boot da máquina. Render: tempo de atividade do container. |
+|---|---|---|---|
+| Hostname | DESKTOP-RB6SL56 | [PREENCHER] | Máquina física vs container |
+| Platform | win32 | linux | Windows local vs Linux em nuvem |
+| CPU | Intel i3-10100F | [PREENCHER] | Hardware físico vs infraestrutura virtual |
+| Memória | 7.85 GB | [PREENCHER] | RAM física vs cota do container |
 
 ---
 
-## 18. Análise das Diferenças entre Local e Cloud
+# 17. Análise das Diferenças
 
-Ao executar a aplicação localmente, os dados exibidos pertencem ao computador utilizado pelo aluno. Por isso, o hostname aparece como DESKTOP-RB6SL56, a plataforma aparece como `win32`, e os dados de CPU e memória correspondem ao hardware físico.
+A execução local reflete diretamente o hardware físico do computador.
 
-No Render, a aplicação é executada em um ambiente remoto de nuvem. Por esse motivo, o hostname exibido é diferente, representando o identificador interno do container ou servidor utilizado pela plataforma.
+No Render, a aplicação roda em ambiente de nuvem, onde o hostname e a plataforma indicam o isolamento por containers.
 
-Essa diferença demonstra que a mesma aplicação pode ser executada em ambientes distintos, utilizando recursos diferentes de sistema operacional, CPU, memória e infraestrutura.
-
-O plano gratuito do Render pode colocar aplicações em hibernação após determinado período sem acesso, reativando-as quando são acessadas novamente. Por isso, o uptime no Render tende a ser bem menor do que o uptime local.
+O uptime no Render geralmente é menor devido à política de hibernação das instâncias gratuitas quando permanecem inativas.
 
 ---
 
-## 19. Relação com Conceitos de Sistemas Operacionais
+---
 
-A atividade permite relacionar a aplicação prática com diversos conceitos estudados em Sistemas Operacionais.
+# 18. Observações Técnicas
+
+Durante os testes, as seguintes observações técnicas foram registradas:
+
+## Abstração de Hardware
+
+Notou-se que o código JavaScript permanece idêntico nos dois ambientes, mas o sistema operacional retorna dados completamente distintos, comprovando a eficiência da camada de abstração do Kernel.
+
+## Virtualização no Render
+
+O hostname exibido no Render (geralmente uma sequência aleatória de caracteres) confirma que a aplicação não roda diretamente no hardware físico, mas sim em um container isolado.
+
+## Escalabilidade Vertical
+
+Observou-se que a memória total disponível no Render (aproximadamente 512 MB no plano gratuito) é muito inferior à memória disponível na máquina local (8 GB), evidenciando a necessidade de otimização de recursos em ambientes cloud.
 
 ---
 
-### 19.1 Processos
+# 18.1. Problemas Encontrados e Soluções
 
-Quando a aplicação é iniciada com o comando:
+Abaixo estão os principais desafios enfrentados durante o desenvolvimento e suas respectivas soluções:
 
-```
+| Problema | Causa | Solução |
+|---|---|---|
+| Erro de Porta em Uso | Tentativa de utilizar a porta `3000`, que já estava ocupada por outro processo local. | Alteração da porta padrão para `3001` no arquivo `index.js`. |
+| Scripts Bloqueados | Política de execução do PowerShell impedia a execução do `npm`. | Execução do comando `Set-ExecutionPolicy` conforme descrito na Seção 4.3. |
+| Erro de Deploy no Render | O Render não conseguia conectar ao servidor devido à porta fixa no código. | Implementação da variável `process.env.PORT` para utilização da porta automática fornecida pelo Render. |
+| CORS Error | O frontend não conseguia consumir a API em alguns navegadores. | Instalação e configuração do middleware `cors` no Express.js. |
+
+---
+
+# 19. Relação com Conceitos de Sistemas Operacionais
+
+## 19.1 Processos
+
+O comando abaixo inicia um processo gerenciado pelo Kernel do Windows (local) ou Linux (Render):
+
+```bash
 node index.js
 ```
 
-o sistema operacional cria um processo para executar o Node.js.
+---
 
-Esse processo fica responsável por manter o servidor Express ativo e responder às requisições feitas pelo navegador.
+## 19.2 Gerenciamento de Memória
 
-No ambiente local, esse processo é criado no sistema operacional Windows.  
-No Render, esse processo é criado em um ambiente de nuvem, normalmente baseado em Linux.
+As funções:
+
+```javascript
+totalmem()
+freemem()
+```
+
+demonstram como o sistema operacional gerencia recursos para os processos.
 
 ---
 
-### 19.2 Gerenciamento de Memória
+## 19.3 Virtualização
 
-A aplicação utiliza as funções:
-
-```js
-os.totalmem()
-os.freemem()
-```
-
-Essas funções permitem visualizar a quantidade total de memória e a memória livre disponível no sistema.
-
-Isso se relaciona diretamente ao gerenciamento de memória feito pelo sistema operacional, que controla a alocação e liberação de memória entre processos e serviços em execução.
+No Render, a aplicação utiliza conteinerização, uma forma de virtualização em nível de sistema operacional que compartilha o Kernel hospedeiro, mas isola as dependências da aplicação.
 
 ---
 
-### 19.3 Uso de CPU
+# 20. Conclusão
 
-A função:
-
-```js
-os.cpus()
-```
-
-foi utilizada para obter informações sobre os processadores disponíveis no ambiente de execução.
-
-Com isso, a aplicação exibe a quantidade de CPUs e o modelo do processador. Esse recurso demonstra como o sistema operacional gerencia e disponibiliza informações sobre os recursos de processamento.
+A atividade demonstrou na prática como a mesma aplicação Node.js se adapta a diferentes ambientes através da abstração de hardware proporcionada pelo sistema operacional e pela flexibilidade da computação em nuvem.
 
 ---
 
-### 19.4 Sistema Operacional Hospedeiro
-
-O sistema operacional hospedeiro é o ambiente onde a aplicação está sendo executada.
-
-No teste local, o sistema hospedeiro foi a máquina Windows do aluno.
-
-No Render, o sistema hospedeiro é um ambiente remoto de nuvem, gerenciado pela própria plataforma.
-
-Essa diferença mostra que uma aplicação pode funcionar em diferentes sistemas operacionais, desde que suas dependências sejam compatíveis.
-
----
-
-### 19.5 Virtualização
-
-A computação em nuvem utiliza virtualização ou conteinerização para executar aplicações em ambientes isolados.
-
-No Render, a aplicação não roda diretamente em uma máquina física dedicada. Ela é executada em um ambiente controlado, isolado e gerenciado pelo provedor.
-
-Isso permite que múltiplas aplicações compartilhem a mesma infraestrutura física, mantendo separação lógica entre elas.
-
----
-
-### 19.6 Computação em Nuvem
-
-A publicação no Render representa o uso de computação em nuvem.
-
-A aplicação deixou de estar disponível apenas no computador local e passou a ser acessível pela internet por meio de uma URL pública:
-
-```
-https://cloud-so-app-iq0d.onrender.com/
-```
-
-Isso demonstra características importantes da nuvem, como:
-
-- Acesso remoto via internet;
-- Publicação de aplicações sem necessidade de servidor físico próprio;
-- Uso de infraestrutura de terceiros (provedor de nuvem);
-- Escalabilidade e facilidade de deploy;
-- Redução de custos operacionais.
-
----
-
-## 20. Testes Realizados
-
-### 20.1 Teste Local
-
-O teste local foi realizado acessando:
-
-```
-http://localhost:3000
-```
-
-Resultado:
-
-- A aplicação iniciou corretamente;
-- A página foi carregada no navegador;
-- As informações do sistema operacional local foram exibidas;
-- O dashboard atualizou automaticamente a cada 10 segundos.
-
----
-
-### 20.2 Teste no GitHub
-
-O teste no GitHub consistiu em verificar se os arquivos foram enviados corretamente para o repositório remoto.
-
-Foram verificados os seguintes arquivos:
-
-```
-index.js
-package.json
-package-lock.json
-.gitignore
-public/index.html
-```
-
-Resultado:
-
-- O repositório foi criado corretamente;
-- Os arquivos do projeto foram enviados sem a pasta `node_modules`;
-- O histórico de commits foi registrado;
-- O projeto ficou disponível para integração com o Render.
-
----
-
-### 20.3 Teste no Render
-
-O teste no Render foi realizado acessando:
-
-```
-[https://cloud-so-app-iq0d.onrender.com/]
-```
-
-Resultado:
-
-- O deploy foi realizado com sucesso;
-- A aplicação ficou disponível online;
-- A página carregou corretamente;
-- As informações do ambiente em nuvem foram exibidas;
-- Foi possível comparar os dados locais com os dados do Render.
-
----
-
-## 21. Dificuldades Encontradas
-
-Durante o desenvolvimento da atividade, ocorreram algumas dificuldades:
-
-**Erro de execução de scripts no PowerShell:**  
-Ao tentar executar `npm install`, o PowerShell bloqueou o arquivo `npm.ps1` por política de segurança. A solução foi executar o seguinte comando como Administrador:
-
-```
-Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
-```
-
-Alternativamente, foi utilizado o Prompt de Comando (cmd), onde o erro não ocorre.
-
-**Criação do arquivo .gitignore no Windows:**  
-O Windows não permite criar arquivos que começam com ponto diretamente pelo explorador de arquivos. A solução foi criar o arquivo pelo terminal:
-
-```
-echo node_modules/ > .gitignore
-```
-
-**Autenticação no GitHub:**  
-Durante o `git push`, o GitHub solicitou token ao invés de senha. Foi necessário gerar um Personal Access Token nas configurações da conta e utilizá-lo como senha.
-
----
-
-## 22. Comandos Principais Utilizados
-
-### Instalação e execução
-
-```
-npm install
-node index.js
-```
-
-### Git e GitHub
-
-```
-git init
-git add .
-git commit -m "primeiro commit - cloud-so-app"
-git branch -M main
-git remote add origin https://github.com/marcellegg/cloud-so-app.git
-git push -u origin main
-```
-
-### Atualização após alterações
-
-```
-git add .
-git commit -m "descricao da alteracao"
-git push
-```
-
----
-
-## 23. Conclusão
-
-A atividade permitiu compreender de forma prática a relação entre aplicações web, sistemas operacionais e computação em nuvem.
-
-Por meio do desenvolvimento da aplicação `cloud-so-app`, foi possível utilizar o Node.js e o Express.js para criar um servidor web simples, capaz de consultar informações do sistema operacional utilizando o módulo nativo `os`.
-
-Ao executar a aplicação localmente, os dados exibidos corresponderam à máquina pessoal utilizada no desenvolvimento. Já no Render, os dados exibidos corresponderam ao ambiente remoto de nuvem fornecido pela plataforma.
-
-Essa comparação demonstrou que o mesmo código pode ser executado em ambientes diferentes, apresentando informações distintas de hostname, sistema operacional, CPU, memória e tempo de atividade.
-
-Além disso, a atividade permitiu praticar conceitos importantes como processos, gerenciamento de memória, uso de CPU, sistema operacional hospedeiro, virtualização, cloud computing, versionamento com Git, publicação no GitHub e deploy em nuvem com Render.
-
-Portanto, o projeto atingiu o objetivo proposto, demonstrando de forma prática a diferença entre execução local e execução em ambiente cloud.
-
----
-
-## 24. Identificação
-
-**Projeto:** Cloud SO App  
-**Aluna:** Marcelle de Góes Silva.
-**Disciplina:** Nuvem e Sistemas Operacionais  
-**Professor:** Prof. Me. Deivison S. Takatu  
-**Repositório:** [https://github.com/marcellegg/cloud-so-app]
-**Aplicação Online:** [https://cloud-so-app-iq0d.onrender.com/]
-
+# 21. Identificação
+
+| Informação | Dados |
+|---|---|
+| Projeto | Cloud SO App |
+| Aluna | Marcelle de Góes Silva |
+| Conteúdo | Nuvem e Sistemas Operacionais |
+| Data | 07 de Maio de 2026 |
